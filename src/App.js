@@ -1,25 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
+import { HashRouter, Route } from 'react-router-dom';
 import './App.css';
+// import Navbar from './components/Navbar';
+import Navbarprofile from './components/Navbarprofile';
+// import Login from './components/Login';
+// import Signup from './components/Signup';
+import Profile from './components/Profile';
+import Wallposts from './components/Wallposts';
+import Account from './components/Account';
+import Logout from './components/Logout';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <div className="App">
+        {/* <Navbar /> */}
+        <Navbarprofile />
+        {/* <Route exact path="/" component={Login} /> */}
+        {/* <Route path="/Signup" component={Signup} /> */}
+        <Route exact path="/" component={Profile} />
+        <Route path="/Wallposts" component={Wallposts} />
+        <Route path="/Account" component={Account} />
+        <Route path="/Logout" component={Logout} />
+      </div>
+    </HashRouter>
   );
 }
 
