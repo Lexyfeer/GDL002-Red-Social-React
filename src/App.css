@@ -2,13 +2,13 @@
 .App {
   width: 100%;
   height: auto;
-  background-color: rgb(22, 20, 20);
 
   border: solid .2rem lawngreen;
 }
 
 .mainContainer {
   color: antiquewhite;
+  background-color: rgb(1, 6, 8);
   
   border: solid 0.2rem rgb(201, 27, 27);
 }
@@ -76,4 +76,26 @@ nav {
 
   border: solid .2rem red;
 }
+
+/* HEADER */
+header {
+  background-color: rgb(22, 20, 20);
+  margin-bottom: 3rem;
+  border: solid .2rem red;
+}
+
+.header-logo-image {
+  /* float: left; */
+  width: 6rem;
+  height: 6rem;
+
+  border: solid .2rem red;
+}
+
+header h2{
+  display: inline;
+  margin: auto 13rem;
+  border: solid .2rem rgb(11, 33, 233);
+}
+
 
