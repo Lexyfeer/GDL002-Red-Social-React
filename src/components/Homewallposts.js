@@ -1,9 +1,11 @@
 import React from 'react';
+import Navbarprofile from './Navbarprofile'
 
-class Wallposts extends React.Component {
+class HomeWallposts extends React.Component {
     render() {
         return (
             <div className="mainContainer">
+                <Navbarprofile />
                 <div className="contentWallPost">
                     <h2>Muro</h2>
 
@@ -13,4 +15,4 @@ class Wallposts extends React.Component {
     }
 }
 
-export default Wallposts;
+export default HomeWallposts;

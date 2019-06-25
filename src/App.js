@@ -1,14 +1,12 @@
 import React from 'react';
 import { HashRouter, Route } from 'react-router-dom';
 import './App.css';
-// import Navbar from './components/Navbar';
-import Navbarprofile from './components/Navbarprofile';
-// import Login from './components/Login';
-// import Signup from './components/Signup';
-import Profile from './components/Profile';
-import Wallposts from './components/Wallposts';
+import Login from './components/Login';
+import Register from './components/Register';
+import HomeWallposts from './components/Homewallposts';
+import Profile from './components/Profile'
 import Account from './components/Account';
-import Logout from './components/Logout';
+// import Logout from './components/Logout';
 
 
 
@@ -16,14 +14,12 @@ function App() {
   return (
     <HashRouter>
       <div className="App">
-        {/* <Navbar /> */}
-        <Navbarprofile />
-        {/* <Route exact path="/" component={Login} /> */}
-        {/* <Route path="/Signup" component={Signup} /> */}
-        <Route exact path="/" component={Profile} />
-        <Route path="/Wallposts" component={Wallposts} />
+        <Route exact path="/" component={Login} />
+        <Route path="/Register" component={Register} />
+        <Route path="/Homewallposts" component={HomeWallposts} />
+        <Route exact path="/Profile" component={Profile} />
         <Route path="/Account" component={Account} />
-        <Route path="/Logout" component={Logout} />
+        {/* <Route path="/Logout" component={Logout} /> */}
       </div>
     </HashRouter>
   );

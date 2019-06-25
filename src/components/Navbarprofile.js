@@ -9,8 +9,8 @@ const Navbarprofile = () => (
             <img className="App-logo-image" src={Logo} alt="logo" />
         </Link>
         <div className="navMenu navbar-nav">
-            <NavLink className="nav-item navMenuLink" exact to="/" >Perfil</NavLink>
-            <NavLink className="nav-item navMenuLink" to="/Wallposts" >Muro</NavLink>
+            <NavLink className="nav-item navMenuLink" to="/" >Muro</NavLink>
+            <NavLink className="nav-item navMenuLink" exact to="/Profile" >Perfil</NavLink>
             <NavLink className="nav-item navMenuLink" to="/Account" >Cuenta</NavLink>
             <NavLink className="nav-item navMenuLink" to="/Logout" >Cerrar sesion</NavLink>
         </div>
