@@ -1,44 +1,82 @@
-import React from "react";
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import firebase from "../firebase/firebase";
+import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Logo from "../assets/images/logo.png";
 import Button from "./Button";
 // import Button from "react-bootstrap/Button";
 
-class Register extends React.Component {
+class Register extends Component {
+  state = {
+    email: "",
+    password: "",
+    error: null
+  };
+  handleInputChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+  handleSubmit = event => {
+    event.preventDefault();
+    const { email, password } = this.state;
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
+      .then(user => {
+        this.props.history.push("/");
+      })
+      .catch(error => {
+        this.setState({ error: error });
+      });
+  };
   render() {
+    const { email, password, error } = this.state;
     return (
       <div className="mainContainer">
         <div className="contentSignUp">
           <header>
             <img className="header-logo-image" src={Logo} alt="logo" />
             <h2>Registrate</h2>
+            {error ? <p>{error.message}</p> : null}
           </header>
-          <Form>
-            <Form.Group controlId="name">
+          <Form onSubmit={this.handleSubmit}>
+            {/* <Form.Group controlId="name">
               <Form.Label>Nombre</Form.Label>
               <Form.Control placeholder="Nickname" />
-            </Form.Group>
+            </Form.Group> */}
 
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Correo electrónico</Form.Label>
-              <Form.Control type="email" placeholder="Ingresa tu correo" />
+              <Form.Control
+                type="email"
+                name="email"
+                placeholder="Ingresa tu correo"
+                value={email}
+                onChange={this.handleInputChange}
+              />
               <Form.Text className="text-muted">
                 Nunca compartas datos personales con extraños.
               </Form.Text>
-              <Form.Label>Confirma tu correo</Form.Label>
-              <Form.Control type="email" placeholder="Confirmar correo" />
+              {/* <Form.Label>Confirma tu correo</Form.Label>
+              <Form.Control type="email" placeholder="Confirmar correo" /> */}
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Contraseña</Form.Label>
-              <Form.Control type="password" placeholder="Contraseña" />
-              <Form.Label>Confirma tu contraseña</Form.Label>
-              <Form.Control type="password" placeholder="Confirma tu contraseña" />
+              <Form.Control
+                type="password"
+                name="password"
+                placeholder="Contraseña"
+                value={password}
+                onChange={this.handleInputChange}
+              />
+              {/* <Form.Label>Confirma tu contraseña</Form.Label>
+              <Form.Control
+                type="password"
+                placeholder="Confirma tu contraseña"
+              /> */}
             </Form.Group>
             <Button
-              //   type="submit"
-              //   hash="#./Navbarprofile"
+              type="submit"
               className="btnEnter btn btn-dark btn-lg"
               content="Entrar"
             />
