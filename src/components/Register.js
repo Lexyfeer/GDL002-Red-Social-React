@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import Logo from "../assets/images/logo.png";
 import Button from "./Button";
-// import Button from "react-bootstrap/Button";
 
 class Register extends Component {
   state = {
@@ -36,7 +35,6 @@ class Register extends Component {
           <header>
             <img className="header-logo-image" src={Logo} alt="logo" />
             <h2>Registrate</h2>
-            {error ? <p>{error.message}</p> : null}
           </header>
           <Form onSubmit={this.handleSubmit}>
             {/* <Form.Group controlId="name">
@@ -75,14 +73,12 @@ class Register extends Component {
                 placeholder="Confirma tu contraseña"
               /> */}
             </Form.Group>
+            {error ? <p>{error.message}</p> : null}
             <Button
               type="submit"
               className="btnEnter btn btn-dark btn-lg"
-              content="Entrar"
+              content="Registrar"
             />
-            {/* <Button variant="primary" type="submit">
-              Submit
-            </Button> */}
           </Form>
           <Link to="./">¿Ya eres usuario registrado? VE A INICIAR SESIÓN</Link>
         </div>
